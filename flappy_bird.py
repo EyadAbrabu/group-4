@@ -124,7 +124,7 @@ while run:
 
         bird_group.draw(screen)
 
-        start_text = font_small.render("Click to Start", True, (255, 255, 255))
+        start_text = font_small.render("Click to Start", True, (0, 0, 0))
         screen.blit(start_text, (
             screen_width // 2 - start_text.get_width() // 2,
             screen_height // 2 - start_text.get_height() // 2))
@@ -181,7 +181,7 @@ while run:
             game_state = game_over
          
         
-        score_text = font.render(str(score), True, (255, 255, 255))
+        score_text = font.render(str(score), True, (0, 0, 0))
         screen.blit(score_text, (screen_width // 2, 20)) 
 
         for event in pygame.event.get():
@@ -207,13 +207,13 @@ while run:
         screen.blit(ground_img, (ground_scroll + screen_width, 680))
 
         
-        pause_text = font.render("PAUSED", True, (255, 255, 0))
+        pause_text = font.render("PAUSED", True, (0, 0, 0))
         screen.blit(
             pause_text,
                 (screen_width // 2 - pause_text.get_width() // 2,
                 screen_height // 2 - pause_text.get_height() // 2))
         
-        resume_text = font_small.render("Press 'P' to Resume", True, (255, 255, 255))
+        resume_text = font_small.render("Press 'P' to Resume", True, (0, 0, 0))
         screen.blit(
             resume_text,
                 (screen_width // 2 - resume_text.get_width() // 2,
@@ -241,11 +241,11 @@ while run:
         screen.blit(over_text, (screen_width // 2 - over_text.get_width() // 2,
             screen_height // 2 - over_text.get_height() // 2))
 
-        final_score_text = font_small.render(f"Score: {score}", True, (255, 255, 255))
+        final_score_text = font_small.render(f"Score: {score}", True, (0, 0, 0))
         screen.blit(final_score_text, (screen_width // 2 - final_score_text.get_width() // 2,
             screen_height // 2 + 60))
 
-        restart_text = font_small.render("Click to Restart", True, (255, 255, 255))
+        restart_text = font_small.render("Click to Restart", True, (0, 0, 0))
         screen.blit(restart_text, (screen_width // 2 - restart_text.get_width() // 2,
             screen_height // 2 + 120))
 
