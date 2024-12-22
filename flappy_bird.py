@@ -1,4 +1,4 @@
-
+pip
 import pygame
 from pygame.locals import *
 import random
@@ -35,7 +35,7 @@ ground_scroll = 0
 scroll_speed = 4
 pipe_frequency = 1500  
 last_pipe = pygame.time.get_ticks() - pipe_frequency
-pipe_gap = 200
+pipe_gap = 250
 
 # images
 bg = pygame.image.load('img/bg.png')
