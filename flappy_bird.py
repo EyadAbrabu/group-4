@@ -12,6 +12,7 @@ fps = 60
 menu = 0
 playing = 1
 game_over = 2
+paused = 3
 
 game_state = menu
 
@@ -191,6 +192,39 @@ while run:
                 if event.button == 1:
                     flappy.vel = -8
                     jump_fx.play()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_p:
+                    game_state = paused
+
+        pygame.display.update()
+
+    elif game_state == paused:
+        
+        screen.blit(bg, (0, 0))
+        bird_group.draw(screen)
+        pipe_group.draw(screen)
+        screen.blit(ground_img, (ground_scroll, 680))
+        screen.blit(ground_img, (ground_scroll + screen_width, 680))
+
+        
+        pause_text = font.render("PAUSED", True, (255, 255, 0))
+        screen.blit(
+            pause_text,
+                (screen_width // 2 - pause_text.get_width() // 2,
+                screen_height // 2 - pause_text.get_height() // 2))
+        
+        resume_text = font_small.render("Press 'P' to Resume", True, (255, 255, 255))
+        screen.blit(
+            resume_text,
+                (screen_width // 2 - resume_text.get_width() // 2,
+                screen_height // 2 + 60))
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_p:
+                    game_state = playing
 
         pygame.display.update()
 
@@ -204,18 +238,15 @@ while run:
         screen.blit(ground_img, (ground_scroll + screen_width, 680))
     
         over_text = font.render("GAME OVER", True, (255, 0, 0))
-        screen.blit(over_text, (
-            screen_width // 2 - over_text.get_width() // 2,
+        screen.blit(over_text, (screen_width // 2 - over_text.get_width() // 2,
             screen_height // 2 - over_text.get_height() // 2))
 
         final_score_text = font_small.render(f"Score: {score}", True, (255, 255, 255))
-        screen.blit(final_score_text, (
-            screen_width // 2 - final_score_text.get_width() // 2,
+        screen.blit(final_score_text, (screen_width // 2 - final_score_text.get_width() // 2,
             screen_height // 2 + 60))
 
         restart_text = font_small.render("Click to Restart", True, (255, 255, 255))
-        screen.blit(restart_text, (
-            screen_width // 2 - restart_text.get_width() // 2,
+        screen.blit(restart_text, (screen_width // 2 - restart_text.get_width() // 2,
             screen_height // 2 + 120))
 
         for event in pygame.event.get():
